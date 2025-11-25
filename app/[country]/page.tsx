@@ -6,7 +6,7 @@ import { getUserCountry, COUNTRY_CONFIG } from '@/lib/simple-geo'
 // 动态页面：cn/us/jp
 export default async function CountryPage({ params }: { params: { country: string } }) {
   // 🎯 从 URL 参数获取国家
-  const countryCode = params.country.toUpperCase()
+  const countryCode = params?.country?.toUpperCase()
   const config = COUNTRY_CONFIG[countryCode as keyof typeof COUNTRY_CONFIG] || COUNTRY_CONFIG['US']
   
   // 🎯 也可以从 middleware 注入的 headers 获取
